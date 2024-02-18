@@ -85,6 +85,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   useEffect(() => {
     // Define the period for the moving average
     const period = 10; // You can adjust this value as needed
+    
 
     // Function to calculate moving average
     const calculateMovingAverage = (
@@ -112,15 +113,18 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       };
     };
     // Calculate moving averages with debouncing
-    const debouncedCalculateMovingAverage = debounce((data: CandleStickData[], period: number) => {
-      const averages = calculateMovingAverage(data, period);
-      setMovingAverage(averages);
-    }, 300); // Adjust the delay as needed
+    const debouncedCalculateMovingAverage = debounce(
+      (data: CandleStickData[], period: number) => {
+        const averages = calculateMovingAverage(data, period);
+        setMovingAverage(averages);
+      },
+      300
+    ); // Adjust the delay as needed
 
     // Call the debounced function when data changes
     debouncedCalculateMovingAverage(dummyData, period);
   }, [dummyData]); // Re-calculate when data changes
-  console.log(movingAverage)
+  console.log(movingAverage);
 
   // Function to get all data
   const getAllData = async (symbol: any) => {

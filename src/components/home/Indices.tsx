@@ -13,8 +13,8 @@ const Indices = () => {
     const height = 200;
     const margin = { top: 20, right: 20, bottom: 20, left: 40 };
 
-    const validMovingAverage = movingAverage.filter(
-      (value: number | undefined): value is number => typeof value === "number"
+    const validMovingAverage:any = movingAverage.filter(
+      (value:any) => typeof value === "number"
     );
 
     const xScale = d3
@@ -24,7 +24,7 @@ const Indices = () => {
 
     const yScale = d3
       .scaleLinear()
-      .domain([0, d3.max(validMovingAverage) || 0])
+      .domain([0, 1000| 0])
       .range([height - margin.bottom, margin.top]);
 
     const line = d3
@@ -56,7 +56,7 @@ const Indices = () => {
       .call(d3.axisLeft(yScale));
   }, [movingAverage]);
 
-  return (<div className="shadow-lg rounded-lg p-6">
+  return (<div className="shadow-lg bg-white rounded-lg p-6">
     <svg  ref={svgRef} width="100%" height="200"></svg>
   </div>)
 };

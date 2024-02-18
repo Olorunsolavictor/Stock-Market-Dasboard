@@ -15,6 +15,10 @@ const CandleStickChart: React.FC<{ data: CandleStickData[] }> = ({ data }) => {
 
   useEffect(() => {
     if (!svgRef.current || data.length === 0) return;
+    const svt = d3.select(svgRef.current);
+
+    // Clear existing contents of the SVG
+    svt.selectAll("*").remove();
 
     // Define SVG dimensions and margins
     const width = svgRef.current.clientWidth;
@@ -111,7 +115,7 @@ const CandleStickChart: React.FC<{ data: CandleStickData[] }> = ({ data }) => {
   return (
     <svg
       ref={svgRef}
-      className="w-full  min-h-[400px] flex overflow-x-auto justify-center items-center h-auto p-6 bg-white shadow-lg rounded-lg"
+      className="w-full  flex overflow-x-auto justify-center items-center h-auto p-6  shadow-lg rounded-lg"
       viewBox={`0 0 ${svgRef.current?.clientWidth} 300`}
     ></svg>
   );
