@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkstock_market_dashboard=self.webpackChunkstock_market_dashboard||[]).push([[193],{193:(e,s,a)=>{a.r(s),a.d(s,{default:()=>c});var r=a(791),t=a(184);const c=()=>{const[e,s]=(0,r.useState)(1);return(0,t.jsx)("div",{className:"rounded bg-white flex flex-col gap-6 px-6 border-black w-full h-screen"})}}}]);
+//# sourceMappingURL=193.21bcb29d.chunk.js.map
